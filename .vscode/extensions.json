@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode", // Prettier
+    "dbaeumer.vscode-eslint", // ESLint
+    "formulahendry.auto-rename-tag", // Automatically rename HTML tags
+    "bradlc.vscode-tailwindcss", // Tailwind CSS IntelliSense
+    "lokalise.i18n-ally", // Manage i18n
+    "ms-vscode.vscode-typescript-next" // Support for Next.js TypeScript
+  ]
+}

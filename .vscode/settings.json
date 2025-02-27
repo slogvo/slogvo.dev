@@ -1,0 +1,43 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Use Prettier as the default formatter
+  "editor.formatOnSave": true, // Automatically format when saving
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "true", // Run ESLint fix on save
+    "source.organizeImports": "true" // Organize imports on save
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ], // ESLint checks these file types
+  "typescript.tsdk": "node_modules/typescript/lib", // Use TypeScript from node_modules
+  "files.associations": {
+    "*.css": "tailwindcss" // Support Tailwind IntelliSense in CSS
+  },
+  "i18n-ally.localesPaths": ["locales"], // Support i18n if using JSON files
+  "i18n-ally.keystyle": "nested", // i18n key format (if using i18n-ally)
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.words": [
+    "nextjs",
+    "turbopack",
+    "zustand",
+    "prisma",
+    "slogvo",
+    "i18n",
+    "tailwindcss",
+    "prettierrc",
+    "lintstaged",
+    "typescriptreact",
+    "formatjs",
+    "localematcher"
+  ]
+}
