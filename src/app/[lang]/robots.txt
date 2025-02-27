@@ -1,0 +1,19 @@
+# Allow all crawlers to access the site
+User-agent: *
+Allow: /
+
+# Disallow specific directories or files (optional)
+Disallow: /api/              # Block API routes
+Disallow: /admin/           # Block admin pages (if any)
+Disallow: /private/         # Block private routes (if any)
+
+# Allow crawling for localized routes
+Allow: /en/                 # Allow English pages
+Allow: /vi/                 # Allow Vietnamese pages
+Allow: /[lang]/             # Allow all language routes dynamically
+
+# Sitemap for SEO
+Sitemap: https://slogvo.dev/sitemap.xml
+
+# Crawl delay (optional, to reduce server load)
+Crawl-delay: 10

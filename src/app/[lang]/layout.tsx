@@ -1,4 +1,5 @@
 import { i18n, type Locale } from '@/configs/i18n.config';
+import '@/styles/globals.css';
 
 export const metadata = {
   title: 'i18n within app router - Vercel Examples',
@@ -9,7 +10,7 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
-export default async function Root(props: {
+export default async function RootLayout(props: {
   children: React.ReactNode;
   params: Promise<{ lang: Locale }>;
 }) {
