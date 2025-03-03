@@ -9,4 +9,4 @@ const dictionaries = {
 } as const;
 
 export const getDictionary = async (locale: Locale) =>
-  dictionaries[locale as keyof typeof dictionaries]?.() ?? dictionaries.en();
+  dictionaries[locale as keyof typeof dictionaries]?.() ?? dictionaries.vi();
