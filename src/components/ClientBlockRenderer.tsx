@@ -1,6 +1,6 @@
 'use client';
 
-import { blockMapper, NotionBlock } from 'react-notion-blocks';
+import { blockMapper, type NotionBlock } from 'react-notion-blocks';
 
 export default function ClientBlockRenderer({
   blocks,

@@ -1,5 +1,6 @@
 // src/lib/api.ts
 // import axios from 'axios';
+import { type NotionBlock } from 'react-notion-blocks';
 
 const API_BASE_URL = 'http://blog-express-jf74.onrender.com/api';
 
@@ -9,12 +10,6 @@ export interface Post {
   slug: string;
   cover: string;
   content: NotionBlock[];
-}
-
-export interface NotionBlock {
-  id: string;
-  type: string;
-  [key: string]: unknown;
 }
 
 // src/lib/api.ts

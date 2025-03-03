@@ -6,9 +6,9 @@ const API_BASE_URL = 'http://blog-express-jf74.onrender.com/api';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string[] }> },
 ) {
-  const { id } = params;
+  const id = (await params).id;
   try {
     const response = await axios.get(`${API_BASE_URL}/posts/${id}`);
     return NextResponse.json(response.data);
