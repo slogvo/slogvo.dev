@@ -1,6 +1,7 @@
 // app/[lang]/posts/[slug]/page.tsx
-import ClientBlockRenderer from '@/components/ClientBlockRenderer';
-import { fetchPostById, fetchPosts, Post } from '@/lib/api';
+import ClientBlockRenderPost from '@/components/features/ClientOnly/RenderPost';
+import { fetchPostById, fetchPosts } from '@/lib/api';
+import { Post } from '@/types';
 import { notFound } from 'next/navigation';
 
 export const revalidate = 60;
@@ -62,7 +63,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <h1 className="text-4xl font-bold mb-8">{postDetail.cover}</h1>
       {/* <p className="mb-8">{JSON.stringify(postDetail.content)}</p> */}
       <div className="prose max-w-none">
-        <ClientBlockRenderer blocks={postDetail.content} />
+        <ClientBlockRenderPost blocks={postDetail.content} />
       </div>
     </div>
   );

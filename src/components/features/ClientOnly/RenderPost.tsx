@@ -2,7 +2,7 @@
 
 import { blockMapper, type NotionBlock } from 'react-notion-blocks';
 
-export default function ClientBlockRenderer({
+export default function ClientBlockRenderPost({
   blocks,
 }: {
   blocks: NotionBlock[];

@@ -1,6 +1,6 @@
 // app/page.tsx
+import { CardPost } from '@/components/ui/CardPost';
 import { fetchPosts } from '@/lib/api';
-import Link from 'next/link';
 
 export const revalidate = 60; // Revalidate every 60 seconds (ISR)
 
@@ -10,15 +10,17 @@ export default async function Home() {
   return (
     <div>
       <h1 className="text-4xl font-bold mb-8">Notion Blog</h1>
+      <div className="grid gap-10 md:grid-cols-2 lg:gap-10"></div>
       <div className="space-y-6">
         {posts?.map((post) => (
-          <div key={post.id} className="border-b pb-4">
-            <Link href={`/posts/${post.slug}`}>
-              <h2 className="text-2xl font-semibold hover:underline">
-                {post.title}
-              </h2>
-            </Link>
-          </div>
+          <CardPost
+            key={post.slug}
+            id={post.id}
+            cover={post.cover}
+            slug={post.slug}
+            title={post.title}
+            excerpt={post.excerpt}
+          />
         ))}
       </div>
     </div>

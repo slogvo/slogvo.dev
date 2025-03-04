@@ -1,16 +1,7 @@
 // src/lib/api.ts
-// import axios from 'axios';
-import { type NotionBlock } from 'react-notion-blocks';
+import { Post } from '@/types';
 
-const API_BASE_URL = 'http://blog-express-jf74.onrender.com/api';
-
-export interface Post {
-  id: string;
-  title: string;
-  slug: string;
-  cover: string;
-  content: NotionBlock[];
-}
+const API_BASE_URL = process.env.API_ENDPOINT;
 
 // src/lib/api.ts
 export const fetchPosts = async (): Promise<Post[]> => {

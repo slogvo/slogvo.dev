@@ -38,6 +38,10 @@
     "lintstaged",
     "typescriptreact",
     "formatjs",
-    "localematcher"
+    "localematcher",
+    "notionhq",
+    "LogdevStorires",
+    "dasharray",
+    "dashoffset"
   ]
 }

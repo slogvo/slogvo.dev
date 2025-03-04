@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm lint && next dev --turbopack -p 5000",
-    "build": "npm lint && npm test && next build",
+    "dev": "pnpm lint && next dev --turbopack -p 5000",
+    "build": "pnpm lint && pnpm test && next build",
     "start": "next start",
     "lint": "next lint --max-warnings=0",
     "test": "jest",
@@ -25,6 +25,7 @@
     "next-auth": "^4.24.11",
     "next-intl": "^3.26.5",
     "next-seo": "^6.6.0",
+    "next-themes": "^0.4.4",
     "prisma": "^6.4.1",
     "qrcode-terminal": "^0.12.0",
     "react": "^19.0.0",
