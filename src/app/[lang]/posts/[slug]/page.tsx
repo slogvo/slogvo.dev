@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PostPageProps) {
   const { slug } = await params;
   const posts = await fetchPosts();
   const post = posts.find((p) => p.slug === slug);
-  if (!post) return { title: 'Post Not Found' };
+  if (!post || !post.id) return { title: 'Post Not Found' };
 
   const postDetail = await fetchPostById(post.id);
   return {
@@ -35,7 +35,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const posts = await fetchPosts();
   const post = posts.find((p) => p.slug === slug);
 
-  if (!post) {
+  if (!post || !post.id) {
     notFound();
   }
 
@@ -63,7 +63,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <h1 className="text-4xl font-bold mb-8">{postDetail.cover}</h1>
       {/* <p className="mb-8">{JSON.stringify(postDetail.content)}</p> */}
       <div className="prose max-w-none">
-        <ClientBlockRenderPost blocks={postDetail.content} />
+        <ClientBlockRenderPost blocks={postDetail.content ?? []} />
       </div>
     </div>
   );
