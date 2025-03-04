@@ -1,6 +1,8 @@
 'use client';
-import { useRef } from 'react';
+// Setup: https://r3f.docs.pmnd.rs/getting-started/examples
+import { JSX, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
 import {
   useGLTF,
   Stage,
@@ -35,7 +37,7 @@ export default function App() {
         cellThickness={0.6}
         sectionSize={3.3}
         sectionThickness={1.5}
-        sectionColor={[0.5, 0.5, 10]}
+        sectionColor="#0000ff"
         fadeDistance={30}
       />
       <OrbitControls
@@ -46,7 +48,7 @@ export default function App() {
         minPolarAngle={Math.PI / 2}
         maxPolarAngle={Math.PI / 2}
       />
-      <EffectComposer disableNormalPass>
+      <EffectComposer enableNormalPass={false}>
         <Bloom luminanceThreshold={2} mipmapBlur />
         <ToneMapping />
       </EffectComposer>
@@ -64,23 +66,27 @@ Source: https://sketchfab.com/3d-models/s2wt-kamdo-industrial-divinities-f503b70
 Title: S2WT "Kamdo" (Industrial Divinities)
 */
 
-function Kamdo(props) {
-  const head = useRef();
-  const stripe = useRef();
-  const light = useRef();
-  const { nodes, materials } = useGLTF(
+function Kamdo(props: JSX.IntrinsicElements['group']) {
+  const head = useRef<THREE.Group>(null);
+  const stripe = useRef<THREE.MeshBasicMaterial>(null);
+  const light = useRef<THREE.PointLight>(null);
+  const { nodes, materials }: any = useGLTF(
     '/s2wt_kamdo_industrial_divinities-transformed.glb',
   );
   useFrame((state, delta) => {
     const t = (1 + Math.sin(state.clock.elapsedTime * 2)) / 2;
-    stripe.current.color.setRGB(2 + t * 20, 2, 20 + t * 50);
-    easing.dampE(
-      head.current.rotation,
-      [0, state.pointer.x * (state.camera.position.z > 1 ? 1 : -1), 0],
-      0.4,
-      delta,
-    );
-    light.current.intensity = 1 + t * 4;
+    stripe.current!.color.setRGB(2 + t * 20, 2, 20 + t * 50);
+    if (head.current) {
+      easing.dampE(
+        head.current.rotation,
+        [0, state.pointer.x * (state.camera.position.z > 1 ? 1 : -1), 0],
+        0.4,
+        delta,
+      );
+    }
+    if (light.current) {
+      light.current.intensity = 1 + t * 4;
+    }
   });
   return (
     <group {...props}>
