@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  transpilePackages: ['three'],
   images: {
     domains: [
       'www.notion.so',
@@ -9,6 +10,7 @@ const nextConfig: NextConfig = {
       'i.ytimg.com',
       'encrypted-tbn0.gstatic.com',
       'bs-uploads.toptal.io',
+      'images.unsplash.com',
     ],
   },
   // images: {

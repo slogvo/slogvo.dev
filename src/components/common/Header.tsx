@@ -4,7 +4,7 @@ import { SearchBox } from './Search';
 
 export const Header = () => {
   return (
-    <nav className="bg-background/80 fixed left-0 top-0 z-20 w-full backdrop-blur-lg shadow-sm transition-[box-shadow] duration-200">
+    <nav className="bg-[#4f4b4c]/30 fixed left-0 top-0 z-20 w-full backdrop-blur-lg shadow-sm transition-[box-shadow] duration-200">
       {/* <div
         className="bg-primary/10 text-foreground relative inset-0 bottom-auto px-8 py-3 text-center text-sm data-[state='open']:block data-[state='closed']:hidden"
         data-test="banner"
