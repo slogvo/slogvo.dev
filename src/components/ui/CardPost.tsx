@@ -1,17 +1,21 @@
 import Link from 'next/link';
 import { Post } from '@/types';
 import Image from 'next/image';
+import dayjs from 'dayjs';
 
-export const CardPost = ({ cover, slug, title, excerpt }: Post) => {
+export const CardPost = ({
+  cover,
+  slug,
+  title,
+  excerpt,
+  publishDate,
+}: Post) => {
   return (
     <div className="group cursor-pointer">
       <div className="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
-        <Link
-          className="relative block aspect-video"
-          href="/post/architectural-engineering-wonders-of-the-modern-era-for-your-inspiration"
-        >
+        <Link className="relative block aspect-video" href={`/posts/${slug}`}>
           <Image
-            alt="Thumbnail"
+            alt={title}
             priority
             className="object-cover transition-all"
             sizes="(max-width: 768px) 30vw, 33vw"
@@ -27,26 +31,21 @@ export const CardPost = ({ cover, slug, title, excerpt }: Post) => {
         <div>
           <div className="flex gap-3">
             <Link href={`/posts/${slug}`}>
-              <span className="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-blue-600">
-                {title}
+              <span className="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-sky-400">
+                {/* {title} */} Technology
               </span>
             </Link>
           </div>
           <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white">
-            <Link href="/post/architectural-engineering-wonders-of-the-modern-era-for-your-inspiration">
-              <span className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-purple-800 dark:to-purple-900">
-                {excerpt}
+            <Link href={`/posts/${slug}`}>
+              <span className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-sky-500 dark:to-sky-600">
+                {title}
               </span>
             </Link>
           </h2>
-          <div className="hidden">
+          <div className="">
             <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
-              <Link href="/post/architectural-engineering-wonders-of-the-modern-era-for-your-inspiration">
-                Reinvention often comes in spurts, after a long period of
-                silence. Just as modern architecture recently enjoyed a
-                comeback, brand architecture, a field with well-established
-                principles for decades
-              </Link>
+              <Link href={`/posts/${slug}`}>{excerpt}</Link>
             </p>
           </div>
           <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
@@ -70,15 +69,12 @@ export const CardPost = ({ cover, slug, title, excerpt }: Post) => {
                     }}
                   />
                 </div>
-                <span className="truncate text-sm">Mario Sanchez</span>
+                <span className="truncate text-sm">Phi Long</span>
               </div>
             </Link>
             <span className="text-xs text-gray-300 dark:text-gray-600">•</span>
-            <time
-              className="truncate text-sm"
-              dateTime="2022-10-21T15:48:00.000Z"
-            >
-              October 21, 2022
+            <time className="truncate text-sm" dateTime={publishDate}>
+              {publishDate || dayjs().format('YYYY/MM/DD')}
             </time>
           </div>
         </div>

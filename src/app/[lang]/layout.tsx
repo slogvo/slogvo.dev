@@ -27,7 +27,7 @@ export default async function RootLayout(props: {
       <body>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="mt-32 flex-grow max-w-4xl mx-auto p-5">
+          <main className="mt-20 flex-grow max-w-4xl mx-auto p-5">
             {children}
           </main>
           {/* <Footer /> */}

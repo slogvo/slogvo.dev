@@ -61,9 +61,6 @@ export const Header = () => {
             <Link className="block px-3 py-2" href="/docs">
               Documentation
             </Link>
-            <Link className="block px-3 py-2" href="/pricing">
-              Pricing
-            </Link>
           </div>
           <SearchBox />
         </div>
