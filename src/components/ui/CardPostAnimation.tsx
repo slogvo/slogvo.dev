@@ -4,8 +4,10 @@ import { CardPost } from '@/components/ui/CardPost';
 
 declare global {
   interface Window {
-    gsap: unknown;
-    ScrollTrigger: unknown;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    gsap: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ScrollTrigger: any;
   }
 }
 

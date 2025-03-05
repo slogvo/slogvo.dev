@@ -1,6 +1,7 @@
 'use client';
 import { JSX } from 'react';
-import { ReactLenis } from 'lenis/react';
+// import ReactLenis from 'lenis/react';
+import ReactLenis from 'lenis/dist/lenis-react';
 import ClientScene from '@/components/features/ClientOnly/Scene';
 import { BlockAnimatedCard } from './BlockAnimatedCard';
 

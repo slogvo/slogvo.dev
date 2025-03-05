@@ -15,6 +15,8 @@ const eslintConfig = [
     rules: {
       '@typescript-eslint/ban-ts-comment': 'off',
       'react-hooks/exhaustive-deps': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+      // '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 ];
