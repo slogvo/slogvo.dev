@@ -2,9 +2,8 @@ import Link from 'next/link';
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
   { href: '/blog', label: 'Blog' },
-  { href: '/docs', label: 'Documentation' },
+  { href: '/about', label: 'About' },
 ];
 
 export const HeaderNav = () => {

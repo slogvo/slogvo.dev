@@ -4,6 +4,7 @@ import Step from '../ui/step';
 // Import CommonJS icon data
 import { Icon } from '@iconify/react';
 import html5 from '@iconify/icons-devicon/html5';
+import capacitor from '@iconify/icons-devicon/capacitor';
 import vuetify from '@iconify/icons-devicon/vuetify';
 import mongodb from '@iconify/icons-devicon/mongodb';
 import css3 from '@iconify/icons-devicon/css3';
@@ -56,20 +57,21 @@ const techIcons = [
   reactNative,
   redux,
   tailwind,
+  vuetify,
   sass,
   nodejs,
   mongodb,
+  vite,
+  vitest,
+  pinia,
+  capacitor,
   php,
-  vuetify,
   mysql,
   wordpress,
   figma,
   photoshop,
   github,
   npm,
-  vite,
-  vitest,
-  pinia,
   firebase,
   elastic,
   notion,
