@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
       'encrypted-tbn0.gstatic.com',
       'bs-uploads.toptal.io',
       'images.unsplash.com',
+      'jvers-cms.onrender.com',
     ],
   },
   // images: {
