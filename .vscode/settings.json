@@ -46,6 +46,7 @@
     "kamdo",
     "GLTF",
     "drei",
-    "maath"
+    "maath",
+    "gsap"
   ]
 }

@@ -1,4 +1,5 @@
 import { Header } from '@/components/common/Header';
+import CanvasCursor from '@/components/ui/CanvasCursor';
 import { i18n, type Locale } from '@/configs/i18n.config';
 import '@/styles/index.css';
 
@@ -26,6 +27,7 @@ export default async function RootLayout(props: {
     <html lang={params.lang}>
       <body>
         <div className="flex flex-col min-h-screen">
+          <CanvasCursor />
           <Header />
           <main>{children}</main>
           {/* <Footer /> */}
