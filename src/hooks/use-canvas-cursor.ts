@@ -29,9 +29,9 @@ const useCanvasCursor = () => {
     init: function (e) {
       const E = {
         friction: 0.5,
-        size: 50,
+        size: 20,
         dampening: 0.25,
-        tension: 0.98,
+        tension: 0.5,
       };
 
       this.spring = (e.spring || 0) + 0.1 * Math.random() - 0.02;

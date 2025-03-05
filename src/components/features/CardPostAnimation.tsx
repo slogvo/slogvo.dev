@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import { CardPost } from '@/components/ui/CardPost';
+import { CardPost } from './CardPost';
 
 declare global {
   interface Window {

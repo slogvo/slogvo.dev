@@ -1,4 +1,4 @@
-export const AppLogo = () => {
+export const LogoIcon = () => {
   return (
     <>
       <svg

@@ -16,7 +16,7 @@ const Skeleton = () => {
   const controls = useAnimation();
   useEffect(() => {
     controls.start({
-      scale: [1, 1.5, 1],
+      scale: [1.5, 3, 1.5],
       rotate: [0, 360, 0],
       transition: {
         duration: 2,
@@ -28,9 +28,9 @@ const Skeleton = () => {
 
   return (
     <div className="overflow-hidden h-full relative flex items-center justify-start px-8">
-      <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
-        <Container className="h-8 w-8 circle-1">
-          <NextLogo className="h-4 w-4 " />
+      <div className="flex flex-row flex-shrink-0 justify-center items-center gap-3">
+        <Container className="h-10 w-10 circle-1">
+          <NextLogo className="h-6 w-6 " />
         </Container>
         <Container className="h-12 w-12 circle-2">
           <ReactLogo className="h-6 w-6 " />
@@ -46,8 +46,8 @@ const Skeleton = () => {
         </Container>
       </div>
 
-      <div className="h-20 w-px absolute top-20 m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
-        <div className="w-10 h-20 top-1/2 -translate-y-1/2 absolute -left-10">
+      <div className="h-32 w-px absolute top-2 m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
+        <div className="w-10 h-24 top-1/2 -translate-y-1/2 absolute -left-10">
           <Sparkles />
         </div>
       </div>
@@ -154,7 +154,7 @@ export const CardSkeletonContainer = ({
         'h-[8rem] md:h-[160px] rounded-xl z-40',
         className,
         showGradient &&
-          'bg-neutral-300/0 [mask-image:radial-gradient(50%_50%_at_50%_50%,white_20%,transparent_100%)]',
+          'bg-neutral-300/0 [mask-image:radial-gradient(50%_50%_at_50%_50%,white_60%,transparent_100%)]',
       )}
     >
       {children}

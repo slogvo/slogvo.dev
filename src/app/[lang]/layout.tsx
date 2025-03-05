@@ -1,5 +1,5 @@
 import { Header } from '@/components/common/Header';
-import CanvasCursor from '@/components/ui/CanvasCursor';
+import CanvasCursor from '@/components/features/CanvasCursor';
 import { i18n, type Locale } from '@/configs/i18n.config';
 import '@/styles/index.css';
 

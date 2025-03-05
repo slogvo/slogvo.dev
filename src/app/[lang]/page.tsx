@@ -1,8 +1,8 @@
 // app/page.tsx
-import { CardPost } from '@/components/ui/CardPost';
 import { fetchPosts } from '@/lib/api';
 import Script from 'next/script';
 import SmoothScrollSection from '@/components/features/ClientOnly/SmoothScrollSection';
+import { CardPost } from '@/components/features/CardPost';
 
 export const revalidate = 60; // Revalidate every 60 seconds (ISR)
 
