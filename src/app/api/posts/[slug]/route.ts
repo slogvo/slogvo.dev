@@ -2,7 +2,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 
-const NEXT_PUBLIC_API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
+const DB_API_ENDPOINT =
+  process.env.DB_API_ENDPOINT || 'https://blog-express-jf74.onrender.com/api';
 
 export async function GET(
   request: NextRequest,
@@ -10,9 +11,7 @@ export async function GET(
 ) {
   const slug = (await params).slug;
   try {
-    const response = await axios.get(
-      `${NEXT_PUBLIC_API_ENDPOINT}/posts/${slug}`,
-    );
+    const response = await axios.get(`${DB_API_ENDPOINT}/posts/${slug}`);
     return NextResponse.json(response.data);
   } catch (error) {
     console.log('🚀 ~ error:', error);

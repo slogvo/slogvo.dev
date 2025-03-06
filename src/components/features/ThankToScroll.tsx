@@ -1,7 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-import { Sparkles } from './ClientOnly/Sparkles';
-
 function ThankToScroll() {
   return (
     <section className="mx-auto relative h-full w-full mt-4 border-none overflow-hidden rounded-2xl">

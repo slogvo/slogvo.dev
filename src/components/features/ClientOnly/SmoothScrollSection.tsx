@@ -7,7 +7,6 @@ import { BlockAnimatedCard } from './BlockAnimatedCard';
 import SkillsSection from '../SkillsSection';
 import { RandomizedTextEffect } from './TextRandomized';
 import CardsHoverEffect from '../CardsHoverEffect';
-import ThankToScroll from '../ThankToScroll';
 import { Sparkles } from './Sparkles';
 import ContactCard from '../ContactInfo';
 
