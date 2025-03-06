@@ -1,7 +1,7 @@
 // src/lib/api.ts
 import { Post } from '@/types';
 
-const API_BASE_URL = process.env.API_ENDPOINT;
+const API_BASE_URL = 'https://blog-express-jf74.onrender.com/api';
 
 // src/lib/api.ts
 export const fetchPosts = async (): Promise<Post[]> => {
@@ -30,9 +30,10 @@ export const fetchPosts = async (): Promise<Post[]> => {
   }
 };
 
-export const fetchPostById = async (id: string): Promise<Post> => {
+export const fetchPostById = async (slug: string): Promise<Post> => {
+  console.log('🚀 ~ fetchPostById ~ slug:', slug);
   try {
-    const response = await fetch(`${API_BASE_URL}/posts/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/posts/${slug}`, {
       next: { revalidate: 60 },
     });
     const data = await response.json();

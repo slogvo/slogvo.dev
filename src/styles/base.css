@@ -6,35 +6,6 @@ body {
   line-height: 1.5;
 }
 
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-p {
-  text-wrap: pretty;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
 #root,
 #__next {
   isolation: isolate;
@@ -149,8 +120,6 @@ canvas {
   }
 }
 
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -206,8 +175,6 @@ canvas {
     --chart-5: 340 75% 55%;
   }
 }
-
-
 
 @layer base {
   * {

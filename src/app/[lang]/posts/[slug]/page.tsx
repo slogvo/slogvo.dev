@@ -2,6 +2,7 @@
 import ClientBlockRenderPost from '@/components/features/ClientOnly/RenderPost';
 import { fetchPostById, fetchPosts } from '@/lib/api';
 import { Post } from '@/types';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 export const revalidate = 60;
@@ -35,13 +36,15 @@ export default async function PostPage({ params }: PostPageProps) {
   const posts = await fetchPosts();
   const post = posts.find((p) => p.slug === slug);
 
-  if (!post || !post.id) {
+  if (!post || !post.slug) {
     notFound();
   }
 
+  console.log('🚀 ~ PostPage ~ post.slug:', post.slug);
   let postDetail: Post;
   try {
-    postDetail = await fetchPostById(post.id);
+    postDetail = await fetchPostById(post.slug);
+    console.log('🚀 ~ PostPage ~ postDetail:', postDetail);
   } catch (error) {
     if (
       error instanceof Error &&
@@ -58,12 +61,27 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold mb-8">{postDetail.title}</h1>
-      <h1 className="text-4xl font-bold mb-8">{postDetail.cover}</h1>
-      {/* <p className="mb-8">{JSON.stringify(postDetail.content)}</p> */}
-      <div className="prose max-w-none">
-        <ClientBlockRenderPost blocks={postDetail.content ?? []} />
+    <div className="w-full max-w-7xl mx-auto grid grid-cols-3 gap-4">
+      <div className="col-span-2">
+        <div className="w-full">
+          <h1 className="text-4xl font-bold mb-8">{postDetail.title}</h1>
+          <div className="relative w-full aspect-video">
+            <Image
+              alt={postDetail.title}
+              src={postDetail.cover as string}
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+          <div className="mt-4">
+            <ClientBlockRenderPost blocks={postDetail.content ?? []} />
+          </div>
+        </div>
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, ipsa odit
+        voluptas saepe quia quisquam, adipisci magnam iusto dolor corrupti ipsum
+        deleniti! Alias vero quam ab commodi, unde ipsam nam.
       </div>
     </div>
   );

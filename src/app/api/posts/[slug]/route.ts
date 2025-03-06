@@ -1,16 +1,16 @@
-// app/api/posts/[id]/route.ts
+// app/api/posts/[slug]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://blog-express-jf74.onrender.com/api';
+const API_BASE_URL = process.env.API_ENDPOINT;
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string[] }> },
+  { params }: { params: Promise<{ slug: string[] }> },
 ) {
-  const id = (await params).id;
+  const slug = (await params).slug;
   try {
-    const response = await axios.get(`${API_BASE_URL}/posts/${id}`);
+    const response = await axios.get(`${API_BASE_URL}/posts/${slug}`);
     return NextResponse.json(response.data);
   } catch (error) {
     console.log('🚀 ~ error:', error);
