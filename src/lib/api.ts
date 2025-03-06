@@ -1,12 +1,12 @@
 // src/lib/api.ts
 import { Post } from '@/types';
 
-const API_BASE_URL = 'https://blog-express-jf74.onrender.com/api';
+const NEXT_PUBLIC_API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
 // src/lib/api.ts
 export const fetchPosts = async (): Promise<Post[]> => {
   try {
-    const response = await fetch(`${API_BASE_URL}/posts`, {
+    const response = await fetch(`${NEXT_PUBLIC_API_ENDPOINT}/posts`, {
       next: { revalidate: 60 },
     });
     const data = await response.json();
@@ -33,7 +33,7 @@ export const fetchPosts = async (): Promise<Post[]> => {
 export const fetchPostById = async (slug: string): Promise<Post> => {
   console.log('🚀 ~ fetchPostById ~ slug:', slug);
   try {
-    const response = await fetch(`${API_BASE_URL}/posts/${slug}`, {
+    const response = await fetch(`${NEXT_PUBLIC_API_ENDPOINT}/posts/${slug}`, {
       next: { revalidate: 60 },
     });
     const data = await response.json();
