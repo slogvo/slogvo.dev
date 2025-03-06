@@ -20,7 +20,6 @@ export default function ScrollToTopButton() {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  // Hàm scroll to top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

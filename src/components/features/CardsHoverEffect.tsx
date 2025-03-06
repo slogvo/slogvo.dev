@@ -12,8 +12,8 @@ const cardData = [
       defaultText: 'text-blue-800',
       hoverText: 'text-white',
     },
-    title: '📽 React Universal Video',
-    hoverTitle: '📽 Flexible Video Player',
+    title: '⏰ React Universal Video',
+    hoverTitle: '⏰ Flexible Video Player',
     description:
       'Tích hợp phát video từ YouTube, HLS, và HTML5 một cách liền mạch. Dễ sử dụng, hỗ trợ tùy chỉnh cao và tối ưu hiệu suất.',
     gradient: {
@@ -38,8 +38,8 @@ const cardData = [
       defaultText: 'text-green-800',
       hoverText: 'text-white',
     },
-    title: '🧩Formsible Element',
-    hoverTitle: '🧩 Xây dựng biểu mẫu dễ dàng',
+    title: '📽 Formsible Element',
+    hoverTitle: '📽 Xây dựng biểu mẫu dễ dàng',
     description:
       'Cung cấp các thành phần nhẹ, dễ tùy chỉnh, hỗ trợ tích hợp Codemirror, Google Maps và PayPal Checkout. Tương thích hoàn toàn với Vue 3.',
     gradient: {
@@ -123,7 +123,7 @@ const Card = ({ data }: { data: CardData }) => {
 
   return (
     <div
-      className={`group ${gradient.default} ${gradient.hover} relative rounded-2xl border ${border} shadow-sm before:absolute before:inset-0 before:bg-[url('/noise.png')] before:opacity-5 transition-all duration-300`}
+      className={`group ${gradient.default} ${gradient.hover} relative rounded-2xl border ${border} shadow-sm before:absolute before:inset-0 before:bg-[url('http://localhost:5000/noise.png')] before:rounded-lg before:opacity-80 cursor-pointer transition-all duration-300`}
     >
       <div className="relative">
         <div className="px-6 py-5">
