@@ -1,4 +1,7 @@
+import { Header } from '@/components/common/Header';
+import ScrollToTopButton from '@/components/common/ScrollToTopButton';
 import { i18n, type Locale } from '@/configs/i18n.config';
+import { inter } from '@/lib/fonts';
 import '@/styles/index.css';
 
 export const metadata = {
@@ -22,10 +25,13 @@ export default async function RootLayout(props: {
   const { children } = props;
 
   return (
-    <html lang={params.lang}>
+    <html lang={params.lang} className={inter.className}>
       <body>
-        <div className="bg-slate-950 text-white flex flex-col min-h-screen">
+        <div className="text-white bg-slate-950 flex flex-col min-h-screen">
+          <Header />
           <main>{children}</main>
+          {/* <Footer /> */}
+          <ScrollToTopButton />
         </div>
       </body>
     </html>

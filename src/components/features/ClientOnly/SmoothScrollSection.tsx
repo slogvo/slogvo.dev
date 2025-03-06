@@ -7,6 +7,9 @@ import { BlockAnimatedCard } from './BlockAnimatedCard';
 import SkillsSection from '../SkillsSection';
 import { RandomizedTextEffect } from './TextRandomized';
 import CardsHoverEffect from '../CardsHoverEffect';
+import ThankToScroll from '../ThankToScroll';
+import { Sparkles } from './Sparkles';
+import ContactCard from '../ContactInfo';
 
 export default function SmoothScrollSection(): JSX.Element {
   return (
@@ -47,12 +50,23 @@ export default function SmoothScrollSection(): JSX.Element {
               <CardsHoverEffect />
             </div>
           </section>
-          <section className="text-white h-[70vh] w-full bg-zinc-950  grid place-content-center sticky top-0">
+          <section className="text-white h-[40vh] w-full bg-zinc-950 rounded-tr-2xl rounded-tl-2xl grid place-content-center sticky top-0">
             <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-            <h1 className="2xl:text-6xl text-3xl sm:text-5xl px-8 font-semibold text-center tracking-tight leading-[120%]">
-              <p>Cam on vi da den</p>
-              <p className="mt-5">Giờ cuộn lên lại nào ☝️</p>
-            </h1>
+            <article className="grid gap-4 text-center relative z-10 p6-10">
+              <span className="inline-block xl:text-base text-sm border p-1 px-3 w-fit mx-auto rounded-full border-[#3298ff] bg-[#0f1c35]">
+                Liên hệ
+              </span>
+              <ContactCard />
+            </article>
+            <div className="absolute bottom-0 z-[2] h-[400px] w-full overflow-hidden [mask-image:radial-gradient(100%_50%,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#3273ff,transparent_90%)] before:opacity-40 after:absolute">
+              <Sparkles
+                density={1800}
+                speed={1.2}
+                color="#48b6ff"
+                direction="top"
+                className="absolute inset-x-0 bottom-0 h-full w-full "
+              />
+            </div>
           </section>
         </article>
       </main>

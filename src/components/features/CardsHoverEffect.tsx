@@ -13,7 +13,7 @@ const cardData = [
       hoverText: 'text-white',
     },
     title: '⏰ React Universal Video',
-    hoverTitle: '⏰ Flexible Video Player',
+    hoverTitle: '⏰ Trình phát video linh hoạt',
     description:
       'Tích hợp phát video từ YouTube, HLS, và HTML5 một cách liền mạch. Dễ sử dụng, hỗ trợ tùy chỉnh cao và tối ưu hiệu suất.',
     gradient: {
@@ -39,9 +39,9 @@ const cardData = [
       hoverText: 'text-white',
     },
     title: '📽 Formsible Element',
-    hoverTitle: '📽 Xây dựng biểu mẫu dễ dàng',
+    hoverTitle: '📽 Xây dựng Form dễ dàng',
     description:
-      'Cung cấp các thành phần nhẹ, dễ tùy chỉnh, hỗ trợ tích hợp Codemirror, Google Maps và PayPal Checkout. Tương thích hoàn toàn với Vue 3.',
+      'Cung cấp các Component tiện ích, dễ tùy chỉnh, hỗ trợ tích hợp Codemirror, Google Maps và PayPal Checkout.',
     gradient: {
       default:
         'bg-gradient-to-t from-white/20 to-gray-50/50 rounded-2xl shadow-lg backdrop-blur-xs',
@@ -65,7 +65,7 @@ const cardData = [
       hoverText: 'text-white',
     },
     title: '📖 React Notion Blocks',
-    hoverTitle: '📖 Render Notion Content in React',
+    hoverTitle: '📖 Render các khối trong Notion',
     description:
       'Dễ dàng hiển thị nội dung từ Notion trong ứng dụng React với API đơn giản, hỗ trợ đầy đủ các block Notion.',
     gradient: {
