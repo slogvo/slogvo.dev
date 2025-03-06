@@ -24,7 +24,7 @@ export default async function RootLayout(props: {
   return (
     <html lang={params.lang}>
       <body>
-        <div className="mt-28 flex flex-col min-h-screen">
+        <div className="bg-slate-950 text-white flex flex-col min-h-screen">
           <main>{children}</main>
         </div>
       </body>

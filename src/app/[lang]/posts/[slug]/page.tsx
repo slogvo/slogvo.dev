@@ -61,7 +61,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <div className="w-full max-w-7xl mx-auto grid grid-cols-3 gap-4">
+    <div className="w-full max-w-7xl mx-auto grid grid-cols-3 gap-4 mt-20">
       <div className="col-span-2">
         <div className="w-full">
           <h1 className="text-4xl font-bold mb-8">{postDetail.title}</h1>

@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'http://localhost:5000';
-  const locales = ['en', 'ar'];
+  const baseUrl = 'https://logdevstories.vercel.app';
+  const locales = ['vi', 'en', 'ar'];
 
   return [
     {

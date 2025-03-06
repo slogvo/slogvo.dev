@@ -6,8 +6,8 @@ export default async function Post() {
   const posts = await fetchPosts();
 
   return (
-    <div className="bg-slate-950 w-full">
-      <div className="mt-20 pb-20 flex-grow mx-auto p-5 max-w-5xl">
+    <div className="mt-20 w-full text-white">
+      <div className="pb-20 flex-grow mx-auto p-5 max-w-5xl">
         <h2 className="text-3xl font-bold mb-8 text-sky-500">
           Articles and Tutorials
         </h2>
