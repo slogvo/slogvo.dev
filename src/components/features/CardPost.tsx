@@ -38,17 +38,17 @@ export const CardPost = ({
           </div>
           <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white">
             <Link href={`/posts/${slug}`}>
-              <span className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-sky-500 dark:to-sky-600">
+              <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-sky-500 dark:to-sky-600">
                 {title}
               </span>
             </Link>
           </h2>
           <div className="">
-            <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mt-2 line-clamp-3 text-sm text-zinc-400 ">
               <Link href={`/posts/${slug}`}>{excerpt}</Link>
             </p>
           </div>
-          <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
+          <div className="mt-3 flex items-center space-x-3 text-zinc-300 dark:text-zinc-400">
             <Link href="/author/mario-sanchez">
               <div className="flex items-center gap-3">
                 <div className="relative h-5 w-5 flex-shrink-0">
@@ -56,20 +56,13 @@ export const CardPost = ({
                     alt="Mario Sanchez"
                     loading="lazy"
                     decoding="async"
-                    className="rounded-full object-cover"
+                    className="rounded-full object-cover absolute w-full h-full inset-0 bg-transparent"
                     sizes="20px"
                     src="https://bobo.muzli.cloud/1722778983526-sticky-site-hero.png?format=600:450"
                     fill
-                    style={{
-                      position: 'absolute',
-                      height: '100%',
-                      width: '100%',
-                      inset: '0px',
-                      color: 'transparent',
-                    }}
                   />
                 </div>
-                <span className="truncate text-sm">Phi Long</span>
+                <span className="truncate text-sm font-semibold">Phi Long</span>
               </div>
             </Link>
             <span className="text-xs text-gray-300 dark:text-gray-600">•</span>

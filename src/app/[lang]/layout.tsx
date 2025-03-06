@@ -1,6 +1,8 @@
 import { Header } from '@/components/common/Header';
+import ScrollToTopButton from '@/components/common/ScrollToTopButton';
 import CanvasCursor from '@/components/features/CanvasCursor';
 import { i18n, type Locale } from '@/configs/i18n.config';
+import { inter } from '@/lib/fonts';
 import '@/styles/index.css';
 
 export const metadata = {
@@ -24,13 +26,14 @@ export default async function RootLayout(props: {
   const { children } = props;
 
   return (
-    <html lang={params.lang}>
+    <html lang={params.lang} className={inter.className}>
       <body>
         <div className="flex flex-col min-h-screen">
           <CanvasCursor />
           <Header />
           <main>{children}</main>
           {/* <Footer /> */}
+          <ScrollToTopButton />
         </div>
       </body>
     </html>
