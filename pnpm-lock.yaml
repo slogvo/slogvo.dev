@@ -123,8 +123,8 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
       react-notion-blocks:
-        specifier: ^1.2.1
-        version: 1.2.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^1.3.0
+        version: 1.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       swr:
         specifier: ^2.3.2
         version: 2.3.2(react@19.0.0)
@@ -3787,8 +3787,8 @@ packages:
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
-  react-notion-blocks@1.2.1:
-    resolution: {integrity: sha512-xC72oweGC7HY7yTIHUpasE1+qhk0vJKxqhcCwHrnMqJRJeQawCmUVuQiMEV/VthTVPEr31XRKvbXHUYxYyOnow==}
+  react-notion-blocks@1.3.0:
+    resolution: {integrity: sha512-2mBfxUSnBgBCYUpFistNZjurNU7/xaU3qRTKziXgP0ym7NPgogwYZBAktvHLTBTOZXs+MUcGR3s4KWRF1EDz8g==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
@@ -8598,7 +8598,7 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react-notion-blocks@1.2.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-notion-blocks@1.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       prismjs: 1.29.0
     optionalDependencies:

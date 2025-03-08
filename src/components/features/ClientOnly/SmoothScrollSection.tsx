@@ -8,7 +8,8 @@ import SkillsSection from '../SkillsSection';
 import { RandomizedTextEffect } from './TextRandomized';
 import CardsHoverEffect from '../CardsHoverEffect';
 import { Sparkles } from './Sparkles';
-import ContactCard from '../ContactInfo';
+import ContactCard from '../Contact/ContactInfo';
+// import ContactForm from '../Contact/ContactForm';
 
 export default function SmoothScrollSection(): JSX.Element {
   return (
@@ -19,7 +20,7 @@ export default function SmoothScrollSection(): JSX.Element {
           <div className="absolute top-1/2 w-full max-w-md left-1/2 -translate-x-1/2 sm:-translate-x-0 sm:left-[10vw] transform -translate-y-1/2 text-white  z-10">
             {/* <span className="px-8 text-5xl font-bold">Hi, I am Long</span> */}
             <RandomizedTextEffect
-              text="Hi, Tôi là Long"
+              text="Hi, I'm Long"
               className="px-8 text-5xl font-bold"
             />
             <div className="mt-3 px-8 font-regular">
@@ -27,6 +28,7 @@ export default function SmoothScrollSection(): JSX.Element {
               nghiệm người dùng thật mượt mà.
             </div>
             <BlockAnimatedCard />
+            {/* <ContactForm /> */}
           </div>
         </div>
         <article>
