@@ -9,7 +9,9 @@ export default function ClientBlockRenderPost({
   return (
     <>
       {blocks.map((block, index) => (
-        <div key={index}>{blockMapper(block)}</div>
+        <div key={index} className="text-black dark:text-white">
+          {blockMapper(block)}
+        </div>
       ))}
     </>
   );

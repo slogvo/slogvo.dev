@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
 import { SearchInput } from './SearchInput';
 import { ActionContact } from './Contact';
+import { Icon } from '@iconify/react';
 import {
   Button,
   Command,
@@ -34,26 +34,35 @@ export const HeaderAction = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
   return (
     <div className="flex flex-1 items-center justify-between gap-2 md:justify-end">
       <div className="w-full flex-1 md:w-auto md:flex-none">
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
-            <Button className="inline-flex items-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-white/30 hover:bg-accent hover:text-accent-foreground px-4 py-2 relative h-10 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64">
-              <SearchInput />
+            <Button className="inline-flex items-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border dark:border-white/30 hover:bg-accent hover:text-accent-foreground px-4 py-2 relative h-10 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64">
+              <span className="md:hidden">
+                <Icon icon="iconamoon:search-light" className="text-xl" />
+              </span>
+              <span className="hidden md:inline-flex">
+                <SearchInput />
+              </span>
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px] p-0 ">
-            <Command className="rounded-lg border shadow-md p-2">
+          <DialogContent className="mx-auto w-[calc(100%-24px)] sm:max-w-[425px] p-0 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-lg">
+            <Command className="rounded-lg shadow-md p-2 text-zinc-500 dark:text-zinc-400 ">
               <CommandInput
                 placeholder="Type to search..."
                 className="border-none focus:ring-0 p-3"
               />
               <CommandList>
-                <CommandEmpty>No results found.</CommandEmpty>
+                <CommandEmpty className="">No results found.</CommandEmpty>
                 <CommandGroup heading="Suggestions">
                   {suggestions.map((item) => (
-                    <CommandItem key={item} className="py-3">
+                    <CommandItem
+                      key={item}
+                      className="py-3 text-zinc-500 dark:text-zinc-200 "
+                    >
                       {item}
                     </CommandItem>
                   ))}

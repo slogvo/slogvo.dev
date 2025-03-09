@@ -9,7 +9,7 @@ export default async function Post() {
     <div className="mt-20 w-full text-white">
       <div className="pb-20 flex-grow mx-auto p-5 max-w-5xl">
         <h2 className="text-3xl font-bold mb-8 text-sky-500">
-          Articles and Tutorials
+          Danh sách bài viết
         </h2>
         <div className="grid gap-10 md:grid-cols-2 lg:gap-10 text-white">
           {posts?.map((post) => (

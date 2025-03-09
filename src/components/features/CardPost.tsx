@@ -12,7 +12,7 @@ export const CardPost = ({
 }: Post) => {
   return (
     <div className="group cursor-pointer">
-      <div className="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
+      <div className="overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800 transition-all hover:scale-105">
         <Link className="relative block aspect-video" href={`/posts/${slug}`}>
           <Image
             alt={title}
@@ -31,20 +31,20 @@ export const CardPost = ({
         <div>
           <div className="flex gap-3">
             <Link href={`/posts/${slug}`}>
-              <span className="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-sky-400">
+              <span className="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-400 dark:text-primary-300">
                 {/* {title} */} Technology
               </span>
             </Link>
           </div>
-          <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white">
+          <h2 className="text-lg font-semibold leading-snug tracking-tight mt-2 text-gray-900 dark:text-white">
             <Link href={`/posts/${slug}`}>
-              <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-sky-500 dark:to-sky-600">
+              <span className="bg-gradient-to-r from-primary-300 to-primary-200 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-500 dark:to-primary-600">
                 {title}
               </span>
             </Link>
           </h2>
           <div className="">
-            <p className="mt-2 line-clamp-3 text-sm text-zinc-400 ">
+            <p className="mt-2 line-clamp-3 text-sm text-zinc-400 dark:text-zinc-300">
               <Link href={`/posts/${slug}`}>{excerpt}</Link>
             </p>
           </div>
@@ -62,11 +62,16 @@ export const CardPost = ({
                     fill
                   />
                 </div>
-                <span className="truncate text-sm font-semibold">Phi Long</span>
+                <span className="truncate text-sm font-medium text-zinc-500 dark:text-white">
+                  Phi Long
+                </span>
               </div>
             </Link>
-            <span className="text-xs text-gray-300 dark:text-gray-600">•</span>
-            <time className="truncate text-sm" dateTime={publishDate}>
+            <span className="text-xs text-gray-300 dark:text-gray-500">•</span>
+            <time
+              className="truncate text-sm text-gray-600 dark:text-zinc-400"
+              dateTime={publishDate}
+            >
               {publishDate || dayjs().format('YYYY/MM/DD')}
             </time>
           </div>

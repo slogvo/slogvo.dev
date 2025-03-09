@@ -80,11 +80,14 @@ const techIcons = [
 const SkillsSection = () => {
   return (
     <div className="max-w-6xl w-full mx-auto">
-      <h1 className="sm:text-4xl text-2xl font-bold">Kỹ Năng 🚀</h1>
+      <h1 className="sm:text-4xl text-2xl font-bold !text-white">Kỹ Năng 🚀</h1>
       <div className="grid sm:grid-cols-2 grid-cols-1">
         <ul className="mt-4">
           {skills.map((skill, index) => (
-            <li key={index} className="my-3 leading-normal">
+            <li
+              key={index}
+              className="my-3 leading-normal dark:text-black text-black"
+            >
               <Step title={skill} />
             </li>
           ))}

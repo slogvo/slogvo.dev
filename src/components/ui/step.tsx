@@ -15,7 +15,7 @@ const CheckIcon = () => {
       height="24"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="h-5 w-5 text-sky-500 mt-1 flex-shrink-0"
+      className="h-5 w-5 text-primary mt-1 flex-shrink-0"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path

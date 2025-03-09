@@ -61,17 +61,18 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-20">
-      <div className="w-full">
-        <h1 className="text-4xl font-bold mb-8">{postDetail.title}</h1>
-        <div className="relative w-full aspect-video">
-          <Image
-            alt={postDetail.title}
-            src={postDetail.cover as string}
-            fill
-            className="object-cover rounded-lg"
-          />
-        </div>
+    <div className="w-full mt-16">
+      <div className="relative w-full">
+        <Image
+          alt={postDetail.title}
+          src={postDetail.cover as string}
+          height={400}
+          width={400}
+          className="object-cover w-full h-40 sm:h-60"
+        />
+      </div>
+      <div className="w-full max-w-4xl mx-auto mt-4 sm:mt-10 p-4">
+        <h1 className="">{postDetail.title}</h1>
         <div className="mt-4">
           <ClientBlockRenderPost blocks={postDetail.content ?? []} />
         </div>
