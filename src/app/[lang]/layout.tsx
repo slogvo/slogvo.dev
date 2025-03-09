@@ -9,7 +9,7 @@ export const metadata = {
   title: 'LogdevStorires',
   description: 'How to do i18n in Next.js 15 within app router',
   icons: {
-    icon: { url: '/favicon.svg', type: 'image/svg+xml' },
+    icon: { url: '/favicon.ico' },
   },
 };
 
