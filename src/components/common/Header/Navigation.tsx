@@ -30,8 +30,7 @@ export const HeaderNav = () => {
   const pathname = usePathname();
   const [activeLink, setActiveLink] = useState('/');
 
-  // Hàm kiểm tra active dựa trên pathname, bỏ qua tiền tố ngôn ngữ
-  const getActiveLink = (path) => {
+  const getActiveLink = (path: string) => {
     const pathSegments = path.split('/').filter(Boolean);
     if (pathSegments.length === 0 || pathSegments.length === 1) return '/';
     const mainRoute = `/${pathSegments[1] || ''}`;
@@ -43,7 +42,7 @@ export const HeaderNav = () => {
     setActiveLink(initialActive);
   }, [pathname]);
 
-  const handleLinkClick = (href) => {
+  const handleLinkClick = (href: string) => {
     setActiveLink(href);
   };
 
