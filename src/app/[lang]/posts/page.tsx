@@ -1,6 +1,8 @@
-// app/page.tsx
+// app/posts/pages.tsx
 import { fetchPosts } from '@/lib/api';
 import { CardPost } from '@/components/features/CardPost';
+
+export const revalidate = 60;
 
 export default async function Post() {
   const posts = await fetchPosts();

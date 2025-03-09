@@ -13,37 +13,32 @@ interface PostPageProps {
 
 export async function generateStaticParams() {
   const posts = await fetchPosts();
-  return posts.map((post) => ({
+  return posts.slice(0, 10).map((post) => ({
     slug: post.slug,
   }));
 }
 
 export async function generateMetadata({ params }: PostPageProps) {
   const { slug } = await params;
-  const posts = await fetchPosts();
-  const post = posts.find((p) => p.slug === slug);
-  if (!post || !post.id) return { title: 'Post Not Found' };
-
-  const postDetail = await fetchPostById(post.id);
-  return {
-    title: postDetail.title,
-    description: `Blog post: ${postDetail.title}`,
-  };
+  try {
+    const postDetail = await fetchPostById(slug);
+    if (!postDetail || !postDetail.id) return { title: 'Post Not Found' };
+    return {
+      title: postDetail.title,
+      description: `Blog post: ${postDetail.title}`,
+    };
+  } catch (error) {
+    console.log('🚀 ~ generateMetadata ~ error:', error);
+    return { title: 'Post Not Found' };
+  }
 }
 
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
-  const posts = await fetchPosts();
-  const post = posts.find((p) => p.slug === slug);
 
-  if (!post || !post.slug) {
-    notFound();
-  }
-
-  console.log('🚀 ~ PostPage ~ post.slug:', post.slug);
   let postDetail: Post;
   try {
-    postDetail = await fetchPostById(post.slug);
+    postDetail = await fetchPostById(slug);
     console.log('🚀 ~ PostPage ~ postDetail:', postDetail);
   } catch (error) {
     if (
@@ -51,13 +46,19 @@ export default async function PostPage({ params }: PostPageProps) {
       error.message.includes('Rate limit exceeded')
     ) {
       return (
-        <div>
-          <h1 className="text-4xl font-bold mb-8">Rate Limit Exceeded</h1>
-          <p>Please try again later.</p>
+        <div className="w-full mt-16 text-white">
+          <div className="max-w-4xl mx-auto p-4">
+            <h1 className="text-4xl font-bold mb-8">Rate Limit Exceeded</h1>
+            <p>Please try again later.</p>
+          </div>
         </div>
       );
     }
-    throw error;
+    notFound();
+  }
+
+  if (!postDetail || !postDetail.slug) {
+    notFound();
   }
 
   return (
@@ -77,11 +78,6 @@ export default async function PostPage({ params }: PostPageProps) {
           <ClientBlockRenderPost blocks={postDetail.content ?? []} />
         </div>
       </div>
-      {/* <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, ipsa odit
-        voluptas saepe quia quisquam, adipisci magnam iusto dolor corrupti ipsum
-        deleniti! Alias vero quam ab commodi, unde ipsam nam.
-      </div> */}
     </div>
   );
 }
