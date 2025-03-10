@@ -4,6 +4,7 @@ import CanvasCursor from '@/components/features/CanvasCursor';
 import { i18n, type Locale } from '@/configs/i18n.config';
 import { inter } from '@/lib/fonts';
 import '@/styles/index.css';
+import { Toaster } from 'sonner';
 
 export const metadata = {
   title: 'LogdevStorires',
@@ -34,6 +35,7 @@ export default async function RootLayout(props: {
           <main>{children}</main>
           {/* <Footer /> */}
           <ScrollToTopButton />
+          <Toaster />
         </div>
       </body>
     </html>

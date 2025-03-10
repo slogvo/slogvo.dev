@@ -7,12 +7,14 @@ export default function ContactForm() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
+  const DB_API_ENDPOINT =
+    process.env.DB_API_ENDPOINT || 'https://blog-express-jf74.onrender.com/api';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('Đang gửi...');
     try {
-      const res = await fetch('http://localhost:3001/api/send-email', {
+      const res = await fetch(`${DB_API_ENDPOINT}/send-email`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message }),

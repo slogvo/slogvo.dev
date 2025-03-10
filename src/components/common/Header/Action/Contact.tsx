@@ -1,6 +1,7 @@
 'use client';
 
 import { useTheme } from '@/hooks/useTheme';
+import { Icon } from '@iconify/react';
 
 export const ActionContact = () => {
   const openNewTab = (url: string | URL | undefined) => {
@@ -64,7 +65,11 @@ export const ActionContact = () => {
         className="p-2 bg-white/20 dark:border  dark:border-white/30 rounded-full"
         onClick={toggleTheme}
       >
-        {theme === 'light' ? '🌙' : '🌞'}
+        {theme === 'light' ? (
+          '🌙'
+        ) : (
+          <Icon icon="fluent-emoji-flat:sun-with-face" className="text-xl" />
+        )}
       </button>
     </nav>
   );
