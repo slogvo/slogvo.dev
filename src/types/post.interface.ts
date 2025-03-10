@@ -3,7 +3,7 @@ import { NotionBlock } from 'react-notion-blocks';
 export interface Post {
   id?: string;
   title: string;
-  icon: {
+  icon?: {
     type: string;
     emoji: string;
   };
