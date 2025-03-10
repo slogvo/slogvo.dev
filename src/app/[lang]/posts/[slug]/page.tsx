@@ -39,7 +39,6 @@ export default async function PostPage({ params }: PostPageProps) {
   let postDetail: Post;
   try {
     postDetail = await fetchPostById(slug);
-    console.log('🚀 ~ PostPage ~ postDetail:', postDetail);
   } catch (error) {
     if (
       error instanceof Error &&

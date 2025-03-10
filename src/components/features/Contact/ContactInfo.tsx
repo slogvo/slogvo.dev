@@ -34,7 +34,11 @@ const schema = yup.object().shape({
   message: yup.string().trim().required('Lời nhắn không được để trống.'),
 });
 
-const contacts = [
+const contacts: {
+  icon: string;
+  text: string;
+  action: (() => void) | 'openEmailModal';
+}[] = [
   {
     icon: 'mdi:phone',
     text: 'Liên hệ: 0824.034.909',
@@ -72,7 +76,7 @@ export default function ContactCard() {
     email: string;
     message: string;
   }) => {
-    // Hiển thị toast loading và lưu ID
+    // Show toast loading and save the ID
     const toastId = toast.loading('Đang gửi...');
 
     try {
@@ -83,26 +87,26 @@ export default function ContactCard() {
       });
 
       if (res.ok) {
-        // Thành công: Cập nhật toast loading thành success
+        // Success: Update toast loading to success
         toast.success('Tin nhắn đã được gửi thành công!', {
-          id: toastId, // Sử dụng ID để thay thế toast loading
+          id: toastId, // Using ID to replace toast loading
           description: 'Cảm ơn bạn, tôi sẽ phản hồi sớm nhất! 🎉',
           duration: 3000,
         });
         reset(); // Reset form
         setIsEmailModalOpen(false);
       } else {
-        // Thất bại: Cập nhật toast loading thành error
+        // Failed Submit
         toast.error('Gửi tin nhắn thất bại.', {
-          id: toastId, // Sử dụng ID để thay thế toast loading
+          id: toastId, // Using ID to replace toast loading
           description: 'Vui lòng thử lại sau!',
           duration: 3000,
         });
       }
     } catch (error) {
-      // Lỗi: Cập nhật toast loading thành error
+      // Error: Update toast loading to error
       toast.error('Có lỗi xảy ra!', {
-        id: toastId, // Sử dụng ID để thay thế toast loading
+        id: toastId, // Using ID to replace toast loading
         description: (error as Error).message,
         duration: 3000,
       });
