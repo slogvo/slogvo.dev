@@ -17,6 +17,9 @@ importers:
       '@iconify-emoji/noto':
         specifier: ^1.0.2
         version: 1.0.2
+      '@iconify-json/fluent-emoji-flat':
+        specifier: ^1.2.3
+        version: 1.2.3
       '@iconify/icons-logos':
         specifier: ^1.2.36
         version: 1.2.36
@@ -659,6 +662,9 @@ packages:
 
   '@iconify-emoji/noto@1.0.2':
     resolution: {integrity: sha512-PK4GLqXf36fkB/rbfm6j/vfsVZ1e7byJdJCUvkOIu5iwS+2JloAi6wUlgb2cyx0W1Q7kTOgt8kj/tHADPP3uFw==}
+
+  '@iconify-json/fluent-emoji-flat@1.2.3':
+    resolution: {integrity: sha512-dPvAidr4bQv8Esr77qNyD8V8yhtIDUirAQP6eHGeoqxpYVZTnGQ556NlBs4553cV4fjnK81t6eSBmPGPk+yUeA==}
 
   '@iconify/icons-devicon@1.2.17':
     resolution: {integrity: sha512-F1f8y8PEBGgDKyisCDuJ++8yeNkvQ5mUKxH0Ts1GJDY5Htv39wQXEgXvwIEltkBH/tb0G0oqGNwAz0WrKG3o/A==}
@@ -5038,6 +5044,10 @@ snapshots:
   '@humanwhocodes/retry@0.4.2': {}
 
   '@iconify-emoji/noto@1.0.2': {}
+
+  '@iconify-json/fluent-emoji-flat@1.2.3':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/icons-devicon@1.2.17':
     dependencies:

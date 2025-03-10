@@ -66,7 +66,10 @@ export const ActionContact = () => {
         onClick={toggleTheme}
       >
         {theme === 'light' ? (
-          '🌙'
+          <Icon
+            icon="fluent-emoji-flat:last-quarter-moon-face"
+            className="text-xl"
+          />
         ) : (
           <Icon icon="fluent-emoji-flat:sun-with-face" className="text-xl" />
         )}

@@ -1,9 +1,15 @@
 // app/[lang]/posts/[slug]/page.tsx
-import ClientBlockRenderPost from '@/components/features/ClientOnly/RenderPost';
+
 import { fetchPostById, fetchPosts } from '@/lib/api';
 import { Post } from '@/types';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import 'dayjs/locale/vi';
+import ClientBlockRenderPost from '@/components/features/ClientOnly/RenderPost';
+import LikeButton from '@/components/features/ClientOnly/LikeButton';
+import CommentSection from '@/components/features/CommentSection';
 
 export const revalidate = 60;
 
@@ -11,6 +17,7 @@ interface PostPageProps {
   params: Promise<{ slug: string; lang: string }>;
 }
 
+// Tạo static params cho 10 bài đầu tiên
 export async function generateStaticParams() {
   const posts = await fetchPosts();
   return posts.slice(0, 10).map((post) => ({
@@ -18,6 +25,7 @@ export async function generateStaticParams() {
   }));
 }
 
+// Tạo metadata cho bài viết
 export async function generateMetadata({ params }: PostPageProps) {
   const { slug } = await params;
   try {
@@ -33,8 +41,12 @@ export async function generateMetadata({ params }: PostPageProps) {
   }
 }
 
+// Server Component chính
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
+
+  dayjs.extend(relativeTime);
+  dayjs.locale('vi');
 
   let postDetail: Post;
   try {
@@ -71,10 +83,52 @@ export default async function PostPage({ params }: PostPageProps) {
           className="object-cover w-full h-40 sm:h-60"
         />
       </div>
-      <div className="w-full max-w-4xl mx-auto mt-4 sm:mt-10 p-4">
-        <h1 className="">{postDetail.title}</h1>
-        <div className="mt-4">
+      <div className="w-full max-w-4xl relative z-20 mt-10 mx-auto p-4">
+        <div className="text-8xl absolute z-20 -top-28 left-0">
+          {postDetail?.icon?.emoji}
+        </div>
+        <h1 className="mt-4 text-primary dark:text-primary-400">
+          {postDetail.title}
+        </h1>
+        <div className="flex items-center justify-between text-sm">
+          <div className="left flex gap-3">
+            <div className="relative h-10 w-10 flex-shrink-0">
+              <Image
+                alt="Mario Sanchez"
+                loading="lazy"
+                decoding="async"
+                className="rounded-full object-cover absolute w-full h-full inset-0 bg-transparent border-primary dark:border-primary-400 p-1 border-[3px]"
+                sizes="60px"
+                src="https://bobo.muzli.cloud/1722778983526-sticky-site-hero.png?format=600:450"
+                fill
+              />
+            </div>
+            <div>
+              <p className="text-zinc-600 dark:text-zinc-300">
+                <strong>Tác giả:</strong> {postDetail?.author}
+              </p>
+              <p className="text-zinc-600 dark:text-zinc-300 mt-2">
+                <strong>Cập nhật lần cuối:</strong>{' '}
+                {postDetail?.publishDate
+                  ? dayjs(postDetail.publishDate).format('DD/MM/YYYY')
+                  : 'Chưa có thông tin'}
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col items-end">
+            {/* <p className="text-zinc-600 dark:text-zinc-300">
+              {postDetail?.viewCount ?? 0} lượt xem
+            </p> */}
+            <div className="flex gap-2 items-center">
+              <LikeButton slug={slug} />{' '}
+              <span className="text-zinc-600 dark:text-zinc-300">Thích</span>
+            </div>
+          </div>
+        </div>
+        <p className="h-[1px] my-6 w-full bg-zinc-200 dark:bg-zinc-400/50"></p>
+        <div className="mt-8 sm:mt-10">
           <ClientBlockRenderPost blocks={postDetail.content ?? []} />
+          <CommentSection />
         </div>
       </div>
     </div>
