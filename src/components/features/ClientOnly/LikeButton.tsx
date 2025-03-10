@@ -7,14 +7,17 @@ export default function LikeButton({ slug }: { slug: string }) {
   const isLiked = likedPosts[slug] || false;
 
   return (
-    <p className="flex gap-2 items-center">
+    <button
+      className="flex gap-2 items-center"
+      onClick={() => toggleLike(slug)}
+    >
       <Icon
         icon="mdi:heart"
-        className={`text-xl cursor-pointer transition-all ${
+        className={`text-xl transition-all ${
           isLiked ? 'text-primary-600' : 'text-zinc-300 dark:text-zinc-400'
         }`}
-        onClick={() => toggleLike(slug)}
       />
-    </p>
+      <span className="text-zinc-600 dark:text-zinc-300">Thích</span>
+    </button>
   );
 }

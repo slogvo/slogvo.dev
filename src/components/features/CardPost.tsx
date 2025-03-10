@@ -11,13 +11,13 @@ export const CardPost = ({
   publishDate,
 }: Post) => {
   return (
-    <div className="group cursor-pointer">
+    <div className="group custom-pointer">
       <div className="overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800 transition-all hover:scale-105">
         <Link className="relative block aspect-video" href={`/posts/${slug}`}>
           <Image
             alt={title}
             priority
-            className="object-cover transition-all"
+            className="object-cover transition-all cursor-[url(https://res.cloudinary.com/dgbocu1qv/image/upload/v1741613320/nezha-dynamic.png),_pointer]"
             sizes="(max-width: 768px) 30vw, 33vw"
             src={
               cover ||

@@ -31,6 +31,13 @@ export default {
           DEFAULT: '#ec5e95',
         },
       },
+      cursor: {
+        default:
+          "url('https://res.cloudinary.com/dgbocu1qv/image/upload/v1741613320/nezha-dynamic.png'), default !important",
+        pointer:
+          "url('https://res.cloudinary.com/dgbocu1qv/image/upload/v1741613320/nezha-dynamic.png'), pointer !important",
+        auto: "url('https://res.cloudinary.com/dgbocu1qv/image/upload/v1741613320/nezha-dynamic.png'), auto !important",
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

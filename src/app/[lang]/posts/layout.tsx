@@ -28,7 +28,7 @@ export default async function RootLayout(props: {
   return (
     <html lang={params.lang} className={inter.className}>
       <body>
-        <div className="flex flex-col min-h-screen bg-white text-gray-900 dark:tex-white dark:bg-slate-950">
+        <div className="flex flex-col min-h-screen bg-white text-gray-900 dark:tex-white dark:bg-slate-950 custom-cursor">
           <Header />
           <main>
             <LikeProvider>{children}</LikeProvider>

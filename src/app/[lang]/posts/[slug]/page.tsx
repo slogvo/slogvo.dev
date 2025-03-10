@@ -121,7 +121,6 @@ export default async function PostPage({ params }: PostPageProps) {
             </p> */}
             <div className="flex gap-2 items-center">
               <LikeButton slug={slug} />{' '}
-              <span className="text-zinc-600 dark:text-zinc-300">Thích</span>
             </div>
           </div>
         </div>

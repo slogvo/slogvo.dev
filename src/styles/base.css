@@ -7,6 +7,18 @@ body {
   overflow-x: hidden;
 }
 
+.custom-cursor {
+  cursor:
+    url(https://res.cloudinary.com/dgbocu1qv/image/upload/v1741613329/nezha-static.png),
+    default !important;
+}
+
+.custom-cursor:active {
+  cursor:
+    url(https://res.cloudinary.com/dgbocu1qv/image/upload/v1741613320/nezha-dynamic.png),
+    default !important;
+}
+
 #root,
 #__next {
   isolation: isolate;

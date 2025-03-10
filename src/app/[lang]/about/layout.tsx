@@ -27,7 +27,7 @@ export default async function RootLayout(props: {
   return (
     <html lang={params.lang} className={inter.className}>
       <body>
-        <div className="flex flex-col min-h-screen bg-white text-gray-900 dark:tex-white dark:bg-slate-950">
+        <div className="custom-cursor flex flex-col min-h-screen bg-white text-gray-900 dark:tex-white dark:bg-slate-950">
           <Header />
           <main>{children}</main>
           {/* <Footer /> */}

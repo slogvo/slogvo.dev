@@ -29,7 +29,7 @@ export default async function RootLayout(props: {
   return (
     <html lang={params.lang} className={inter.className}>
       <body>
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen custom-cursor">
           <CanvasCursor />
           <Header />
           <main>{children}</main>
