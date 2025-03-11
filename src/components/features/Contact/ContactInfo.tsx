@@ -26,12 +26,15 @@ const DB_API_ENDPOINT =
 
 // Schema validation với Yup
 const schema = yup.object().shape({
-  name: yup.string().trim().required('Tên không được để trống.'),
+  name: yup.string().trim().required('Điền tên vào đi, đừng để trống!'),
   email: yup
     .string()
-    .email('Email không hợp lệ.')
-    .required('Email không được để trống.'),
-  message: yup.string().trim().required('Lời nhắn không được để trống.'),
+    .email('Email phải đúng định dạng nha.')
+    .required('Email bắt buộc phải có.'),
+  message: yup
+    .string()
+    .trim()
+    .required('Viết lời nhắn đi, trống không được đâu.'),
 });
 
 const contacts: {
@@ -68,7 +71,7 @@ export default function ContactCard() {
   } = useForm({
     resolver: yupResolver(schema),
     mode: 'onChange',
-    defaultValues: { name: 'Người lạ ơi', email: '', message: '' },
+    defaultValues: { name: '', email: '', message: '' },
   });
 
   const onSubmit = async (data: {
@@ -143,10 +146,10 @@ export default function ContactCard() {
       <Dialog open={isEmailModalOpen} onOpenChange={setIsEmailModalOpen}>
         <DialogContent className="mx-auto w-[calc(100%-24px)] sm:max-w-[425px] p-4 px-6 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 text-black dark:text-white rounded-lg">
           <DialogHeader>
-            <DialogTitle>Kết nối với tôi</DialogTitle>
+            <DialogTitle>Hãy kết nối với tôi nhé!</DialogTitle>
             <DialogDescription>
-              Hãy để lại thông tin và lời nhắn, tôi sẽ phản hồi trong thời gian
-              sớm nhất!
+              Vui lòng để lại thông tin và lời nhắn của bạn, tôi sẽ phản hồi
+              trong thời gian sớm nhất!
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -163,7 +166,7 @@ export default function ContactCard() {
                     className="w-full border-gray-300 focus:border-primary focus:ring-primary"
                   />
                   {errors.name && (
-                    <p className="text-red-500 text-xs mt-1.5">
+                    <p className="text-red-400 text-xs mt-1.5">
                       {errors.name.message}
                     </p>
                   )}

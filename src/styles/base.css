@@ -105,23 +105,6 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-.scroll-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.scroll-container::-webkit-scrollbar-track {
-  background: #1a202c;
-}
-
-.scroll-container::-webkit-scrollbar-thumb {
-  background: #4a5568;
-  border-radius: 4px;
-}
-
-.scroll-container::-webkit-scrollbar-thumb:hover {
-  background: #718096;
-}
-
 canvas {
   width: 100% !important;
   height: 100vh !important;

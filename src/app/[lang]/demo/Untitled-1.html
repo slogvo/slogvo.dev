@@ -1,0 +1,66 @@
+<div className="mt-10 space-y-4">
+  <div className="relative w-full">
+    <image
+      alt="{postDetail.title}"
+      src="{postDetail.cover}"
+      as
+      string}
+      height="{400}"
+      width="{400}"
+      className="object-cover w-full h-40 sm:h-60"
+    />
+  </div>
+  <div className="w-full max-w-4xl relative z-20 mt-10 mx-auto p-4">
+    <div className="text-8xl absolute z-20 -top-28 left-0">
+      {postDetail?.icon?.emoji}
+    </div>
+    <h1 className="mt-4 text-primary dark:text-primary-400">
+      {postDetail.title}
+    </h1>
+    <div className="flex items-center justify-between text-sm">
+      <div className="left flex gap-3">
+        <div className="relative h-10 w-10 flex-shrink-0">
+          <image
+            alt="Mario Sanchez"
+            loading="lazy"
+            decoding="async"
+            className="rounded-full object-cover absolute w-full h-full inset-0 bg-transparent border-primary dark:border-primary-400 p-1 border-[3px]"
+            sizes="60px"
+            src="https://bobo.muzli.cloud/1722778983526-sticky-site-hero.png?format=600:450"
+            fill
+          />
+        </div>
+        <div>
+          <p className="text-zinc-600 dark:text-zinc-300">
+            <strong>Tác giả:</strong> {postDetail?.author}
+          </p>
+          <p className="text-zinc-600 dark:text-zinc-300 mt-2">
+            <strong>Cập nhật lần cuối:</strong>{' '} {postDetail?.publishDate ?
+            dayjs(postDetail.publishDate).format('DD/MM/YYYY') : 'Chưa có thông
+            tin'}
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col items-end">
+        {/*
+        <p className="text-zinc-600 dark:text-zinc-300">
+          {postDetail?.viewCount ?? 0} lượt xem
+        </p>
+        */}
+        <div className="flex gap-2 items-center">
+          <LikeButton slug="{slug}" />{' '}
+        </div>
+      </div>
+    </div>
+    <p className="h-[1px] my-6 w-full bg-zinc-200 dark:bg-zinc-400/50"></p>
+    <div className="mt-8 sm:mt-10">
+      <ClientBlockRenderPost blocks="{postDetail.content" ?? []} />
+      <CommentSection />
+    </div>
+  </div>
+  {initialData.content.map((block) => (
+  <div key="{block.id}" className="text-black dark:text-white">
+    {blockMapper(block)}
+  </div>
+  ))}
+</div>
