@@ -7,9 +7,10 @@ export const revalidate = 60;
 export default async function Post({
   searchParams,
 }: {
-  searchParams: { query?: string };
+  searchParams: Promise<{ query?: string }>;
 }) {
-  const query = await searchParams.query;
+  const params = await searchParams;
+  const query = params.query;
   const posts = query ? await searchPosts(query) : await fetchPosts();
 
   return (
