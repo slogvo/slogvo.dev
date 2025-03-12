@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import debounce from 'lodash/debounce';
@@ -8,7 +8,6 @@ import {
   Button,
   Command,
   Dialog,
-  CommandInput,
   CommandList,
   CommandEmpty,
   CommandGroup,
@@ -19,9 +18,10 @@ import {
   DialogContent,
   DialogTrigger,
 } from '@/components/ui/';
+import { Input } from '@/components/ui/input';
 import { searchPosts } from '@/lib/api';
-import { SearchInput } from './SearchInput';
 import { ActionContact } from './Contact';
+import { SearchInput } from './SearchInput';
 
 export const HeaderAction = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,39 +29,41 @@ export const HeaderAction = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Function tìm kiếm với debounce (300ms)
-  const debouncedSearch = useMemo(
-    () =>
-      debounce(async (query: string) => {
-        if (!query.trim()) {
-          setSearchResults([]);
-          return;
-        }
-        setLoading(true);
-        try {
-          const results = await searchPosts(query);
-          setSearchResults(results || []);
-        } catch (error) {
-          console.error('Search error:', error);
-          setSearchResults([]);
-          console.log('🚀 ~ debounce ~ setSearchResults:', searchResults);
-        } finally {
-          setLoading(false);
-        }
-      }, 300),
+  // Debounce search function (300ms)
+  const debouncedSearch = useCallback(
+    debounce(async (query: string) => {
+      if (!query.trim()) {
+        setSearchResults([]);
+        return;
+      }
+      setLoading(true);
+      try {
+        const results = await searchPosts(query);
+        console.log('✅ API response:', results);
+        setSearchResults(results || []);
+      } catch (error) {
+        console.error('❌ Search error:', error);
+        setSearchResults([]);
+      } finally {
+        setLoading(false);
+      }
+    }, 300),
     [],
   );
 
-  // Xử lý khi nhập từ khóa
-  const handleSearch = useCallback(
-    (value: string) => {
-      setSearchQuery(value);
-      debouncedSearch(value);
-    },
-    [debouncedSearch],
-  );
+  // Cleanup debounce on unmount
+  useEffect(() => {
+    return () => debouncedSearch.cancel();
+  }, [debouncedSearch]);
 
-  // Lắng nghe sự kiện Ctrl + K để mở hộp thoại tìm kiếm
+  // Handle search input change
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setSearchQuery(value);
+    debouncedSearch(value);
+  };
+
+  // Listen for Ctrl + K to open search
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key === 'k') {
@@ -87,38 +89,43 @@ export const HeaderAction = () => {
               </span>
             </Button>
           </DialogTrigger>
-          <DialogContent className="mx-auto w-[calc(100%-24px)] sm:max-w-[425px] p-0 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-lg">
-            <DialogHeader>
-              <DialogTitle>Edit profile</DialogTitle>
-              <DialogDescription>
-                Make changes to your profile here. Click save when you're done.
-              </DialogDescription>
+          <DialogContent className="mx-auto w-[calc(100%-24px)] sm:max-w-[500px] p-0 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-lg">
+            <DialogHeader className="hidden">
+              <DialogTitle>Search posts</DialogTitle>
             </DialogHeader>
-            <Command className="rounded-lg shadow-md p-2 text-zinc-500 dark:text-zinc-400">
-              <CommandInput
-                placeholder="Type to search posts..."
+            <div className="p-2 border-b-[1px] dark:border-zinc-100/20">
+              <Input
+                type="text"
+                placeholder="Tìm kiếm bài viết"
                 value={searchQuery}
-                onValueChange={handleSearch}
-                className="border-none focus:ring-0 p-3"
+                onChange={handleSearch}
+                className="text-zinc-800 dark:text-white !outline-none !border-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent"
               />
+            </div>
+
+            <Command className="rounded-lg shadow-md p-2 text-zinc-500 dark:text-zinc-400">
               <CommandList>
-                {searchResults.length > 0 ? (
-                  <CommandGroup heading="Posts">
+                {loading && <CommandEmpty>Đang tìm kiếm...</CommandEmpty>}
+                {!loading && searchQuery && searchResults.length === 0 && (
+                  <CommandEmpty>Không tìm thấy bài viết.</CommandEmpty>
+                )}
+                {!loading && searchResults.length > 0 && (
+                  <CommandGroup heading="Bài viết">
                     {searchResults.map((post) => (
-                      <CommandItem key={post.id} asChild>
+                      <CommandItem
+                        key={post.id}
+                        asChild
+                        className="dark:bg-zinc-800/40 bg-zinc-200/10 hover:bg-primary-200/20 dark:hover:bg-primary-300/15 rounded-md p-2 py-3 my-2 mb-3 text-zinc-600 dark:text-zinc-200 hover:text-primary dark:hover:text-primary transition-all"
+                      >
                         <Link
-                          href={`/post/${post.slug}`}
+                          href={`/posts/${post.slug}`}
                           onClick={() => setIsOpen(false)}
                         >
-                          <div className="py-3 text-zinc-500 dark:text-zinc-200">
-                            {post.title}
-                          </div>
+                          <div>{post.title}</div>
                         </Link>
                       </CommandItem>
                     ))}
                   </CommandGroup>
-                ) : (
-                  <CommandEmpty>No results found</CommandEmpty>
                 )}
               </CommandList>
             </Command>

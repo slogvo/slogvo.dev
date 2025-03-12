@@ -29,6 +29,20 @@ export default async function RootLayout(props: {
   return (
     <html lang={params.lang} className={inter.className}>
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              })();
+            `,
+          }}
+        />
         <div className="flex flex-col min-h-screen custom-cursor">
           <CanvasCursor />
           <Header />

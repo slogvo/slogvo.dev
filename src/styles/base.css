@@ -186,3 +186,18 @@ canvas {
     @apply text-gray-600 dark:text-gray-300 mb-3 text-xl font-semibold tracking-tight md:text-2xl;
   }
 }
+
+::selection {
+  background-color: #ec5e95; /* Màu nền khi chọn */
+  color: #fff; /* Màu chữ khi chọn */
+}
+
+::-moz-selection {
+  background-color: #ec5e95; /* Firefox */
+  color: #fff;
+}
+
+.dark ::selection {
+  background-color: #d82a64;
+  color: #fff;
+}
