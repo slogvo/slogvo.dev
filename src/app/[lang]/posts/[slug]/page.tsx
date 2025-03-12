@@ -1,15 +1,17 @@
 // app/[lang]/posts/[slug]/page.tsx
 
+import { notFound } from 'next/navigation';
 import { fetchPostById, fetchPosts } from '@/lib/api';
 import { Post } from '@/types';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import CommentSection from '@/components/features/CommentSection';
+import LikeButton from '@/components/features/ClientOnly/LikeButton';
+import ClientBlockRenderPost from '@/components/features/ClientOnly/RenderPost';
+
+// import dayjs function
+import 'dayjs/locale/vi';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import 'dayjs/locale/vi';
-import ClientBlockRenderPost from '@/components/features/ClientOnly/RenderPost';
-import LikeButton from '@/components/features/ClientOnly/LikeButton';
-import CommentSection from '@/components/features/CommentSection';
 
 export const revalidate = 60;
 
@@ -25,7 +27,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// Tạo metadata cho bài viết
+// Generate metadata for the post
 export async function generateMetadata({ params }: PostPageProps) {
   const { slug } = await params;
   try {
@@ -41,7 +43,7 @@ export async function generateMetadata({ params }: PostPageProps) {
   }
 }
 
-// Server Component chính
+// Main Server Component
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
 

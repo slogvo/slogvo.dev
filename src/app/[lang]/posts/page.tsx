@@ -1,11 +1,16 @@
 // app/posts/pages.tsx
-import { fetchPosts } from '@/lib/api';
+import { fetchPosts, searchPosts } from '@/lib/api';
 import { CardPost } from '@/components/features/CardPost';
 
 export const revalidate = 60;
 
-export default async function Post() {
-  const posts = await fetchPosts();
+export default async function Post({
+  searchParams,
+}: {
+  searchParams: { query?: string };
+}) {
+  const query = await searchParams.query;
+  const posts = query ? await searchPosts(query) : await fetchPosts();
 
   return (
     <div className="mt-20 w-full text-white">

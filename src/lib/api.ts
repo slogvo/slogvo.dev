@@ -84,3 +84,15 @@ export const fetchPostById = async (slug: string): Promise<Post> => {
       : new Error('Unknown error fetching post');
   }
 };
+
+export const searchPosts = async (query: string) => {
+  const res = await fetch(
+    `${DB_API_ENDPOINT}/search?query=${encodeURIComponent(query)}`,
+    {
+      cache: 'no-store',
+    },
+  );
+  if (!res.ok) throw new Error('Failed to search posts');
+  const data = await res.json();
+  return data.posts;
+};
