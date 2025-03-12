@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Post } from '@/types';
+import { IPost } from '@/types';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 
@@ -9,7 +9,7 @@ export const CardPost = ({
   title,
   excerpt,
   publishDate,
-}: Post) => {
+}: IPost) => {
   return (
     <div className="group custom-pointer">
       <div className="overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800 transition-all hover:scale-105">

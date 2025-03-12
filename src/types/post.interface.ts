@@ -1,6 +1,6 @@
 import { NotionBlock } from 'react-notion-blocks';
 
-export interface Post {
+export interface IPost {
   id?: string;
   title: string;
   icon?: {

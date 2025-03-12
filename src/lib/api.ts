@@ -1,10 +1,10 @@
 // src/lib/api.ts
-import { Post } from '@/types';
+import { IPost } from '@/types';
 
 const DB_API_ENDPOINT =
   process.env.DB_API_ENDPOINT || 'https://blog-express-jf74.onrender.com/api';
 
-export const fetchPosts = async (): Promise<Post[]> => {
+export const fetchPosts = async (): Promise<IPost[]> => {
   try {
     const response = await fetch(`${DB_API_ENDPOINT}/posts`, {
       next: { revalidate: 60 },
@@ -44,7 +44,7 @@ export const fetchPosts = async (): Promise<Post[]> => {
   }
 };
 
-export const fetchPostById = async (slug: string): Promise<Post> => {
+export const fetchPostById = async (slug: string): Promise<IPost> => {
   console.log('🚀 ~ fetchPostById ~ slug:', slug);
   try {
     const response = await fetch(`${DB_API_ENDPOINT}/posts/${slug}`, {

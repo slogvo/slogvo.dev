@@ -1,6 +1,7 @@
 // app/posts/pages.tsx
 import { fetchPosts, searchPosts } from '@/lib/api';
 import { CardPost } from '@/components/features/CardPost';
+import { IPost } from '@/types';
 
 export const revalidate = 60;
 
@@ -11,7 +12,7 @@ export default async function Post({
 }) {
   const params = await searchParams;
   const query = params.query;
-  const posts = query ? await searchPosts(query) : await fetchPosts();
+  const posts: IPost[] = query ? await searchPosts(query) : await fetchPosts();
 
   return (
     <div className="mt-20 w-full text-white">

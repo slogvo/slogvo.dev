@@ -2,7 +2,7 @@
 
 import { notFound } from 'next/navigation';
 import { fetchPostById, fetchPosts } from '@/lib/api';
-import { Post } from '@/types';
+import { IPost } from '@/types';
 import Image from 'next/image';
 import CommentSection from '@/components/features/CommentSection';
 import LikeButton from '@/components/features/ClientOnly/LikeButton';
@@ -50,7 +50,7 @@ export default async function PostPage({ params }: PostPageProps) {
   dayjs.extend(relativeTime);
   dayjs.locale('vi');
 
-  let postDetail: Post;
+  let postDetail: IPost;
   try {
     postDetail = await fetchPostById(slug);
   } catch (error) {

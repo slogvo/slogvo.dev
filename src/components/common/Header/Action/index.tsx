@@ -21,11 +21,12 @@ import { Input } from '@/components/ui/input';
 import { searchPosts } from '@/lib/api';
 import { ActionContact } from './Contact';
 import { SearchInput } from './SearchInput';
+import { IPost } from '@/types';
 
 export const HeaderAction = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(false);
 
   // Debounce search function (300ms)
