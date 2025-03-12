@@ -17,7 +17,7 @@ import {
 } from '@react-three/postprocessing';
 import { easing } from 'maath';
 
-export default function App() {
+export default function ClientScene() {
   return (
     <Canvas flat shadows camera={{ position: [-15, 0, 10], fov: 25 }}>
       <fog attach="fog" args={['black', 15, 22.5]} />

@@ -1,6 +1,6 @@
 'use client';
-import { JSX } from 'react';
 // import ReactLenis from 'lenis/react';
+import { JSX, useEffect, useState } from 'react';
 import ReactLenis from 'lenis/dist/lenis-react';
 import ClientScene from '@/components/features/ClientOnly/Scene';
 import { BlockAnimatedCard } from './BlockAnimatedCard';
@@ -9,28 +9,41 @@ import { RandomizedTextEffect } from './TextRandomized';
 import CardsHoverEffect from '../CardsHoverEffect';
 import { Sparkles } from './Sparkles';
 import ContactCard from '../Contact/ContactInfo';
+import LoadingAnimation from '@/components/common/LoadingAnimation';
 // import ContactForm from '../Contact/ContactForm';
 
 export default function SmoothScrollSection(): JSX.Element {
+  const [isClientSceneLoaded, setIsClientSceneLoaded] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsClientSceneLoaded(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <ReactLenis root>
       <main>
-        <div className="relative">
-          <ClientScene />
-          <div className="absolute top-1/2 w-full max-w-md left-1/2 -translate-x-1/2 sm:-translate-x-0 sm:left-[10vw] transform -translate-y-1/2 text-zinc-700 dark:text-white z-10">
-            {/* <span className="px-8 text-5xl font-bold">Hi, I am Long</span> */}
-            <RandomizedTextEffect
-              text="Hi, I'm Long"
-              className="px-8 text-5xl font-bold "
-            />
-            <div className="mt-3 px-8 font-regular text-zinc-600 dark:text-zinc-100">
-              Một Web Developer & UI/UX Designer - đam mê tạo ra những trải
-              nghiệm người dùng thật mượt mà.
+        {isClientSceneLoaded ? (
+          <div className="relative">
+            <ClientScene />
+            <div className="absolute top-1/2 w-full max-w-md left-1/2 -translate-x-1/2 sm:-translate-x-0 sm:left-[10vw] transform -translate-y-1/2 text-zinc-700 dark:text-white z-10">
+              {/* <span className="px-8 text-5xl font-bold">Hi, I am Long</span> */}
+              <RandomizedTextEffect
+                text="Hi, I'm Long"
+                className="px-8 text-5xl font-bold text-white"
+              />
+              <div className="mt-3 px-8 font-regular text-white">
+                Software Engineer & UI/UX Designer - đam mê tạo ra những trải
+                nghiệm người dùng thật mượt mà.
+              </div>
+              <BlockAnimatedCard />
+              {/* <ContactForm /> */}
             </div>
-            <BlockAnimatedCard />
-            {/* <ContactForm /> */}
           </div>
-        </div>
+        ) : (
+          <LoadingAnimation />
+        )}
         <article>
           <section className="text-white h-screen  w-full bg-slate-950  grid place-content-center sticky top-0">
             <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
