@@ -14,7 +14,6 @@ import {
   CommandItem,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
   DialogContent,
   DialogTrigger,
 } from '@/components/ui/';
