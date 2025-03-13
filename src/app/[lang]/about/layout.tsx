@@ -26,6 +26,22 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={params.lang} className={inter.className}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                    (function() {
+                      const theme = localStorage.getItem('theme');
+                      if (theme === 'dark') {
+                        document.documentElement.classList.add('dark');
+                      } else {
+                        document.documentElement.classList.remove('dark');
+                      }
+                    })();
+                  `,
+          }}
+        />
+      </head>
       <body>
         <div className="custom-cursor flex flex-col min-h-screen bg-white text-gray-900 dark:tex-white dark:bg-slate-950">
           <Header />

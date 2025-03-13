@@ -375,14 +375,14 @@ const PremiumLoadingExperience: React.FC<PremiumLoadingExperienceProps> = ({
               </motion.div>
             </motion.div>
             {/* Bottom Info Text */}
-            <motion.div
+            {/* <motion.div
               className="absolute bottom-6 left-0 right-0 text-center text-xs text-white opacity-50 tracking-widest uppercase font-light"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 0.5, y: 0 }}
               transition={{ delay: 1, duration: 1 }}
             >
               Press Escape to Skip · {new Date().getFullYear()}
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         )}
       </AnimatePresence>

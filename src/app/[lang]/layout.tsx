@@ -28,12 +28,12 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={params.lang} className={inter.className}>
-      <body>
+      <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const theme = localStorage.getItem('theme') || 'dark';
+                const theme = localStorage.getItem('theme');
                 if (theme === 'dark') {
                   document.documentElement.classList.add('dark');
                 } else {
@@ -43,6 +43,8 @@ export default async function RootLayout(props: {
             `,
           }}
         />
+      </head>
+      <body>
         <div className="flex flex-col min-h-screen custom-cursor">
           <CanvasCursor />
           <Header />

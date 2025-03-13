@@ -89,10 +89,12 @@ export const HeaderAction = () => {
               </span>
             </Button>
           </DialogTrigger>
+
           <DialogContent className="mx-auto w-[calc(100%-24px)] sm:max-w-[500px] p-0 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-lg">
             <DialogHeader className="hidden">
               <DialogTitle>Search posts</DialogTitle>
             </DialogHeader>
+
             <div className="p-2 border-b-[1px] dark:border-zinc-100/20">
               <Input
                 type="text"

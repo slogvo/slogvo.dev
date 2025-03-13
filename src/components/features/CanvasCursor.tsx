@@ -6,7 +6,7 @@ const CanvasCursor = () => {
   useCanvasCursor();
 
   return (
-    <canvas className="pointer-events-none z-50 fixed inset-0" id="canvas" />
+    <canvas className="pointer-events-none z-[999] fixed inset-0" id="canvas" />
   );
 };
 export default CanvasCursor;

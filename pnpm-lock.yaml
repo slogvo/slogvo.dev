@@ -153,8 +153,8 @@ importers:
         specifier: ^7.54.2
         version: 7.54.2(react@19.0.0)
       react-notion-blocks:
-        specifier: ^2.0.0
-        version: 2.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^2.0.3
+        version: 2.0.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       sonner:
         specifier: ^2.0.1
         version: 2.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -3961,8 +3961,8 @@ packages:
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
-  react-notion-blocks@2.0.0:
-    resolution: {integrity: sha512-5CKml024KiDJsFBgdiyeMBfZZB1AtMFTfSgC1OSxtXmRU7GXaFLghChmU2Pwd8SoaWQSn5/GdcFq18whUjdQkg==}
+  react-notion-blocks@2.0.3:
+    resolution: {integrity: sha512-R9mz25Dth1dtTw8GYQUDLcvdKS1sB4Vg4M5e/YgN7TSc/1L1gMCLn8foq5pIyiMfxJFRET2W1Dg1Zh/7y2p0nQ==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
@@ -8994,7 +8994,7 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react-notion-blocks@2.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-notion-blocks@2.0.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       better-react-mathjax: 2.1.0(react@19.0.0)
       prismjs: 1.29.0
