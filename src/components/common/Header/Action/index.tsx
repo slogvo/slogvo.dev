@@ -39,7 +39,7 @@ export const HeaderAction = () => {
   const [searchResults, setSearchResults] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(false);
   const [inputFocused, setInputFocused] = useState(false);
-  const [characterState, setCharacterState] = useState('idle');
+  // const [characterState, setCharacterState] = useState('idle');
 
   // Debounce search function (300ms)
   const debouncedSearch = useCallback(
@@ -49,16 +49,16 @@ export const HeaderAction = () => {
         return;
       }
       setLoading(true);
-      setCharacterState('searching');
+      // setCharacterState('searching');
       try {
         const results = await searchPosts(query);
         console.log('✅ API response:', results);
         setSearchResults(results || []);
-        setCharacterState(results?.length > 0 ? 'found' : 'notFound');
+        // setCharacterState(results?.length > 0 ? 'found' : 'notFound');
       } catch (error) {
         console.error('❌ Search error:', error);
         setSearchResults([]);
-        setCharacterState('notFound');
+        // setCharacterState('notFound');
       } finally {
         setLoading(false);
       }
@@ -91,24 +91,24 @@ export const HeaderAction = () => {
   }, []);
 
   // Character animations based on state
-  const characterAnimations = {
-    idle: {
-      y: [0, -3, 0],
-      transition: { repeat: Infinity, duration: 2 },
-    },
-    searching: {
-      rotate: [-5, 5, -5],
-      transition: { repeat: Infinity, duration: 0.5 },
-    },
-    found: {
-      scale: [1, 1.1, 1],
-      transition: { duration: 0.5 },
-    },
-    notFound: {
-      y: [0, -5, 0],
-      transition: { duration: 0.5 },
-    },
-  };
+  // const characterAnimations = {
+  //   idle: {
+  //     y: [0, -3, 0],
+  //     transition: { repeat: Infinity, duration: 2 },
+  //   },
+  //   searching: {
+  //     rotate: [-5, 5, -5],
+  //     transition: { repeat: Infinity, duration: 0.5 },
+  //   },
+  //   found: {
+  //     scale: [1, 1.1, 1],
+  //     transition: { duration: 0.5 },
+  //   },
+  //   notFound: {
+  //     y: [0, -5, 0],
+  //     transition: { duration: 0.5 },
+  //   },
+  // };
 
   // Handle suggestion click
   const handleSuggestionClick = (suggestion: string) => {
@@ -136,7 +136,9 @@ export const HeaderAction = () => {
               <DialogTitle>Search posts</DialogTitle>
             </DialogHeader>
 
-            <div className="p-2 h-14 border-b-[1px] dark:border-zinc-100/20 relative">
+            <div
+              className={`p-2 h-14 border-b-[1px] dark:border-zinc-100/20 relative ${inputFocused ? 'border-blue-500' : ''}`}
+            >
               <div className="flex items-center">
                 <Icon
                   icon={
